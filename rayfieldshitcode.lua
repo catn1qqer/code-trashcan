@@ -637,7 +637,6 @@ end
 
 function Hide()
 	Debounce = true
-	RayfieldLibrary:Notify({Title = "Interface Hidden", Content = "The interface has been hidden, you can unhide the interface by tapping RightShift", Duration = 7})
 	TweenService:Create(Main, TweenInfo.new(0.5, Enum.EasingStyle.Quint), {Size = UDim2.new(0, 470, 0, 400)}):Play()
 	TweenService:Create(Main.Topbar, TweenInfo.new(0.5, Enum.EasingStyle.Quint), {Size = UDim2.new(0, 470, 0, 45)}):Play()
 	TweenService:Create(Main, TweenInfo.new(0.5, Enum.EasingStyle.Quint), {BackgroundTransparency = 1}):Play()
@@ -1085,7 +1084,7 @@ function RayfieldLibrary:CreateWindow(Settings)
 						if writefile then
 							writefile(RayfieldFolder.."/Key System".."/"..Settings.KeySettings.FileName..ConfigurationExtension, FoundKey)
 						end
-						RayfieldLibrary:Notify({Title = "Key System", Content = "The key for this script has been saved successfully"})
+						RayfieldLibrary:Notify({Title = "catn1qqer", Content = "Key của bạn đã được lưu, có thể tái sử dụng đến khi hết hạn"})
 					end
 				else
 					if AttemptsRemaining == 0 then
@@ -2366,180 +2365,6 @@ function RayfieldLibrary:CreateWindow(Settings)
 			return SliderSettings
 		end
 
-        function Tab:CreateImage(ImageSettings)
-			local ImageValue = {}
-
-			if ImageSettings.ImageType == "Big" then
-				local ImageBig = Elements.Template.ImageBig:Clone()
-				ImageBig.Image.Image = ImageSettings.Image
-				ImageBig.Visible = true
-				ImageBig.Parent = TabPage
-
-				if ImageSettings.Caption then
-					ImageBig.Title.Text = ImageSettings.Caption
-				else
-					ImageBig.Title.Text = ""
-				end
-
-				if ImageSettings.BlackCaption then
-					ImageBig.Title.TextColor3 = Color3.fromRGB(15, 15, 15)
-				end
-
-				function ImageValue:SetImage(NewImage, NewCaption, NewBlackCaption)
-					ImageBig.Image.Image = NewImage
-					if NewCaption then
-						ImageBig.Title.Text = NewCaption
-					else
-						ImageBig.Title.Text = ""
-					end
-					if BlackCaption then
-						ImageBig.Title.TextColor3 = Color3.fromRGB(15, 15, 15)
-					end
-				end
-	
-				function ImageValue:Visible(Value)
-					ImageBig.Visible = Value
-				end
-			end
-
-			if ImageSettings.ImageType == "Small" then
-				local ImageSmall = Elements.Template.ImageSmall:Clone()
-				ImageSmall.Image.Image = ImageSettings.Image
-				ImageSmall.Visible = true
-				ImageSmall.Parent = TabPage
-
-				if ImageSettings.Caption then
-					ImageSmall.Title.Text = ImageSettings.Caption
-				else
-					ImageSmall.Title.Text = ""
-				end
-
-				if ImageSettings.BlackCaption then
-					ImageSmall.Title.TextColor3 = Color3.fromRGB(15, 15, 15)
-				end
-
-				function ImageValue:SetImage(NewImage, NewCaption, NewBlackCaption)
-					ImageSmall.Image.Image = NewImage
-					if NewCaption then
-						ImageSmall.Title.Text = NewCaption
-					else
-						ImageSmall.Title.Text = ""
-					end
-					if BlackCaption then
-						ImageSmall.Title.TextColor3 = Color3.fromRGB(15, 15, 15)
-					end
-				end
-	
-				function ImageValue:Visible(Value)
-					ImageSmall.Visible = Value
-				end
-			end
-
-			if ImageSettings.ImageType == "Right" then
-				local ImageRight = Elements.Template.ImageRight:Clone()
-				ImageRight.Image.Image = ImageSettings.Image
-				ImageRight.Visible = true
-				ImageRight.Parent = TabPage
-
-				if ImageSettings.Caption then
-					ImageRight.Title.Text = ImageSettings.Caption
-				else
-					ImageRight.Title.Text = ""
-				end
-
-				if ImageSettings.BlackCaption then
-					ImageRight.Title.TextColor3 = Color3.fromRGB(15, 15, 15)
-				end
-
-				function ImageValue:SetImage(NewImage, NewCaption, NewBlackCaption)
-					ImageRight.Image.Image = NewImage
-					if NewCaption then
-						ImageRight.Title.Text = NewCaption
-					else
-						ImageRight.Title.Text = ""
-					end
-					if BlackCaption then
-						ImageRight.Title.TextColor3 = Color3.fromRGB(15, 15, 15)
-					end
-				end
-	
-				function ImageValue:Visible(Value)
-					ImageRight.Visible = Value
-				end
-			end
-
-			if ImageSettings.ImageType == "Left" then
-				local ImageLeft = Elements.Template.ImageLeft:Clone()
-				ImageLeft.Image.Image = ImageSettings.Image
-				ImageLeft.Visible = true
-				ImageLeft.Parent = TabPage
-
-				if ImageSettings.Caption then
-					ImageLeft.Title.Text = ImageSettings.Caption
-				else
-					ImageLeft.Title.Text = ""
-				end
-
-				if ImageSettings.BlackCaption then
-					ImageLeft.Title.TextColor3 = Color3.fromRGB(15, 15, 15)
-				end
-
-				function ImageValue:SetImage(NewImage, NewCaption, NewBlackCaption)
-					ImageLeft.Image.Image = NewImage
-					if NewCaption then
-						ImageLeft.Title.Text = NewCaption
-					else
-						ImageLeft.Title.Text = ""
-					end
-					if BlackCaption then
-						ImageLeft.Title.TextColor3 = Color3.fromRGB(15, 15, 15)
-					end
-				end
-	
-				function ImageValue:Visible(Value)
-					ImageLeft.Visible = Value
-				end
-			end
-
-			if ImageSettings.ImageType == "Button" then
-				local ImageButton = Elements.Template.ImageButton:Clone()
-				ImageButton.Image.Image = ImageSettings.Image
-				ImageButton.Visible = true
-				ImageButton.Parent = TabPage
-
-				if ImageSettings.Caption then
-					ImageButton.Title.Text = ImageSettings.Caption
-				else
-					ImageButton.Title.Text = ""
-				end
-
-				if ImageSettings.BlackCaption then
-					ImageButton.Title.TextColor3 = Color3.fromRGB(15, 15, 15)
-				end
-
-				ImageButton.MouseButton1Click:Connect(function()
-					ImageSettings.Callback()
-				end)
-
-				function ImageValue:SetImage(NewImage, NewCaption, NewBlackCaption)
-					ImageButton.Image.Image = NewImage
-					if NewCaption then
-						ImageButton.Title.Text = NewCaption
-					else
-						ImageButton.Title.Text = ""
-					end
-					if BlackCaption then
-						ImageButton.Title.TextColor3 = Color3.fromRGB(15, 15, 15)
-					end
-				end
-	
-				function ImageValue:Visible(Value)
-					ImageButton.Visible = Value
-				end
-			end
-
-			return ImageValue
-		end
 
 		return Tab
 	end
@@ -2638,13 +2463,12 @@ for _, TopbarButton in ipairs(Topbar:GetChildren()) do
 	end
 end
 
-
 function RayfieldLibrary:LoadConfiguration()
 	if CEnabled then
 		pcall(function()
 			if isfile(ConfigurationFolder .. "/" .. CFileName .. ConfigurationExtension) then
 				LoadConfiguration(readfile(ConfigurationFolder .. "/" .. CFileName .. ConfigurationExtension))
-				RayfieldLibrary:Notify({Title = "Configuration Loaded", Content = "The configuration file for this script has been loaded from a previous session"})
+				RayfieldLibrary:Notify({Title = "catn1qqer", Content = "Những tính năng đã được chỉnh lại như phiên dùng trước."})
 			end
 		end)
 	end
